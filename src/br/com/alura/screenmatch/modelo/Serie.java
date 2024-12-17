@@ -7,6 +7,20 @@ public class Serie extends Titulo{
     private boolean ativa;
     private double duracaoEpisodio;
 
+    public Serie(String nome, int lancamento){
+        super(nome, lancamento);
+    }
+
+    @Override
+    public double getDuracao() {
+        return temporadas * episodios * duracaoEpisodio;
+    }
+
+    @Override
+    public String toString() {
+        return this.getNome() + " (" + this.getLancamento() + ")";
+    }
+
     public double getDuracaoEpisodio() {
         return duracaoEpisodio;
     }
@@ -39,8 +53,4 @@ public class Serie extends Titulo{
         this.temporadas = temporadas;
     }
 
-    @Override
-    public double getDuracao() {
-        return temporadas * episodios * duracaoEpisodio;
-    }
 }
